@@ -8,9 +8,9 @@ terraform {
 }
 
 variable "do_token" {
-    sensitive = true
-    type = string
-    description = "value of the DigitalOcean API token"
+  sensitive   = true
+  type        = string
+  description = "value of the DigitalOcean API token"
 }
 
 provider "digitalocean" {
@@ -22,7 +22,7 @@ resource "digitalocean_project" "default" {
   description = "Default project"
   purpose     = "Web Application"
   environment = "Production"
-  is_default = true
+  is_default  = true
 
   resources = []
 }
