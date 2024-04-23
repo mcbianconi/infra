@@ -18,7 +18,25 @@ resource "cloudflare_record" "mcbianconi" {
   name    = "mcbianconi.com"
   value   = "mcbianconi.pages.dev"
   type    = "CNAME"
-  ttl     = 3600
+  ttl     = 1
+  proxied = true
+}
+
+resource "cloudflare_record" "openai_domain_verification" {
+  zone_id = cloudflare_zone.mcbianconi.id
+  name    = "mcbianconi.com"
+  value   = "openai-domain-verification=dv-vkLM08NtXNcqEpTAqmY7V70l"
+  type    = "TXT"
+  ttl     = 60
+}
+
+resource "cloudflare_record" "www" {
+  zone_id = cloudflare_zone.mcbianconi.id
+  name    = "www"
+  value   = "mcbianconi.com"
+  type    = "CNAME"
+  ttl     = 1
+  proxied = true
 }
 
 resource "cloudflare_pages_project" "mcbianconi" {
