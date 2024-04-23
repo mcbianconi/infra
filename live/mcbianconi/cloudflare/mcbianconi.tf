@@ -35,9 +35,6 @@ resource "cloudflare_pages_project" "mcbianconi" {
       pr_comments_enabled           = true
       deployments_enabled           = true
       production_deployment_enabled = true
-      preview_deployment_setting    = "custom"
-      preview_branch_includes       = ["dev", "preview"]
-      preview_branch_excludes       = ["main", "prod"]
     }
   }
 
